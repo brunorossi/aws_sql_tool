@@ -11,8 +11,8 @@ The tool is based on the underlying softwares:
 * [SteamPipe AWS Foreign Data Wrapper](https://www.postgresql.org/)
 * [pREST](https://prestd.com/)
 
-The code is intended to let you run the tool on your local machine with
-the following softwares installed: 
+The repository is intended to give you the chance to run the tool 
+on your local machine with the following softwares installed: 
 
 * [Docker Engine](https://docs.docker.com/engine/)
 * [Docker Compose](https://docs.docker.com/compose/)
@@ -97,7 +97,7 @@ SELECT * FROM aws_account_1.aws_iam_user WHERE mfa_enabled = false;
 ```
 
 Open your browser and go to the following url: 
-(http://127.0.0.1:3000/clouddetective/aws_account_1/users_with_mfa_disabled)[http://127.0.0.1:3000/clouddetective/aws_account_1/users_with_mfa_disabled]
+[http://127.0.0.1:3000/clouddetective/aws_account_1/users_with_mfa_disabled](http://127.0.0.1:3000/clouddetective/aws_account_1/users_with_mfa_disabled)
 to get the results of your query via REST API.
 
 
