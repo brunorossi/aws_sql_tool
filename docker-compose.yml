@@ -1,0 +1,67 @@
+version: "3.3"
+
+services:
+
+  pgdb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: clouddetective
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpass
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [
+        "CMD-SHELL",
+        "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"
+      ]
+      interval: 30s
+      retries: 3
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: always
+    ports:
+      - "5050:5050"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pguser@domain-name.com
+      PGADMIN_DEFAULT_PASSWORD: pgpass
+      PGADMIN_LISTEN_ADDRESS: 0.0.0.0
+      PGADMIN_LISTEN_PORT: 5050
+    volumes:
+      - pgadmin4_data:/var/lib/pgadmin
+    depends_on:
+      - pgdb
+
+  prest:
+    image: prest/prest
+    links:
+      - "pgdb:pgdb"
+    environment:
+      PREST_VERSION: 1
+      PREST_DEBUG: "false"
+      PREST_AUTH_ENABLED: "false"
+      PREST_PG_HOST: pgdb
+      PREST_PG_USER: pguser
+      PREST_PG_PASS: pgpass
+      PREST_PG_DATABASE: clouddetective
+      PREST_PG_PORT: 5432
+      PREST_SSL_MODE: disable
+      PREST_CACHE_ENABLED: "false"
+      PREST_JWT_DEFAULT: "false"
+      PREST_PG_CACHE: "false"
+    depends_on:
+      - pgdb
+    ports:
+      - "3000:3000"
+
+volumes:
+    pg_data:
+    pgadmin4_data:
