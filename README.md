@@ -101,4 +101,4 @@ Open your browser and go to the following url:
 to get the results of your query via REST API.
 
 
-Cooked with love by [BR78](mailto:brunorossiweb@gmail.com)
+Cooked with L0V3 by [BR78](mailto:brunorossiweb@gmail.com)
