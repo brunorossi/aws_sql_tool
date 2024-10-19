@@ -24,10 +24,10 @@ The tool has been tested on Ubuntu 20.04 LTS.
 
 ```bash
 # clone the repo
-git clone 
+git clone https://github.com/brunorossi/aws_sql_tool.git 
 
 # move into the repo
-cd aws-sql-tool
+cd aws_sql_tool
 
 # run
 docker-compose up -d
