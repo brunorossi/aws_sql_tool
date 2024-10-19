@@ -88,8 +88,8 @@ panel at the bottom of the screen.
 
 ## Expose results through REST API 
 
-Run the followig query to create a VIEW that retrieves all the IAM users 
-with MFA disabled:
+Run the following query to create a VIEW that retrieves all the IAM users 
+into your account with MFA disabled:
 
 ```sql
 CREATE VIEW aws_account_1.users_with_mfa_disabled AS 
