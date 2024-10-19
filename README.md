@@ -42,7 +42,9 @@ Fill the fields with the following credentials:
 * Username: **pguser@domain-name.com**
 * Password: **pgpass**
 
-Click on Servers and fill the password field with the **pgpass** value
+Click on *Servers*. 
+
+Fill the password field with the **pgpass** value if required.
 
 Select the *clouddetective* database into the left panel
 
